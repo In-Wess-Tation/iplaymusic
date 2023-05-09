@@ -1,4 +1,5 @@
 import Footer from './components/Footer'
+import FooterWrapper from './components/FooterWrapper'
 import Header from './components/Header'
 import PageWrapper from './components/PageWrapper'
 import './globals.css'
@@ -19,8 +20,7 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
         </PageWrapper>
-          <Footer />
-        
+        <FooterWrapper /> 
         </body>
     </html>
   )
