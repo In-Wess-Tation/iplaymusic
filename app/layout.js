@@ -1,4 +1,7 @@
 import Footer from './components/Footer'
+import FooterWrapper from './components/FooterWrapper'
+import Header from './components/Header'
+import PageWrapper from './components/PageWrapper'
 import './globals.css'
 import { Poppins } from 'next/font/google'
 
@@ -12,9 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        {children}
-        <Footer />
+      <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
+        <PageWrapper>
+          <Header />
+          {children}
+        </PageWrapper>
+        <FooterWrapper /> 
         </body>
     </html>
   )
