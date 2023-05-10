@@ -80,7 +80,7 @@ const Albums = async () => {
 
                             <div className="flex w-full justify-between text-sm p-2">
                               <div>
-                                <h2>{item.name}</h2>
+                                <h2 className="font-bold">{item.name}</h2>
                                 <p>{item.artists[0].name}</p>
                               </div>
                               <div>
