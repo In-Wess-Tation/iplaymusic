@@ -52,7 +52,7 @@ const Albums = async () => {
 
   const data = await response.json();
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <main className="p-5">
