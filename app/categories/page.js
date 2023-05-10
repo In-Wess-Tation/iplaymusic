@@ -4,7 +4,7 @@ const Categories = () => {
 
     return ( 
         <main className="flex flex-col gap-y-4">
-            <h1 className="text-3xl font-bold pl-12 py-4 text-transparent bg-clip-text bg-gradient-to-r from-[#ee0979] to-[#ff6a00]">Categories</h1>
+            <h1 className="text-3xl font-bold pl-12 py-4 text-transparent bg-clip-text bg-gradient-to-r from-[#ee0979] to-[#ff6a00] w-[40%]">Categories</h1>
             <CategoriesProp headline={"Alternative"} bgprimary="bg-[#FF1168]"/>
             <CategoriesProp headline={"Blues"} bgprimary="bg-[#E54028]"/>
             <CategoriesProp headline={"Classical"} bgprimary="bg-[#F18D05]"/>
