@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Featured from "../components/albums/Featured";
 
 var client_id = "dc49ce32b1384268950bd7ad08fcef06";
 var client_secret = "dc3d398052a1489392702573cbff763a";
@@ -52,7 +54,7 @@ const Albums = async () => {
 
   const data = await response.json();
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <main className="p-5">
@@ -62,13 +64,9 @@ const Albums = async () => {
           <h2 className="font-bold">Featured Albums</h2>
           <p className="text-pink-700">View All</p>
         </div>
-        <article className="overflow-x-scroll flex">
-          {data.albums.items.map(item => (
-                        <div >
-                            <img className="w-[10rem] h-[10rem]" src={item.images[0].url} alt={item.images[0].url} />
-                        </div>
-                    ))}
-        </article>
+      
+      <Featured/> 
+
         <div className="flex justify-between py-5">
           <h2 className="font-bold">New Releases</h2>
           <p className="text-pink-700">View All</p>
@@ -76,7 +74,9 @@ const Albums = async () => {
         <article className="">
           {data.albums.items.map(item => (
                         <article className="flex">
+                          <Link href={`/albums/${item.id}`}>
                             <img className="w-[4rem] h-[4rem] rounded mb-2" src={item.images[0].url} alt="" />
+                          </Link>
 
                             <div className="flex w-full justify-between text-sm p-2">
                               <div>
