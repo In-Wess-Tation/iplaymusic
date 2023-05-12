@@ -15,20 +15,20 @@ import useAuth from "../hooks/useAuth";
 // return await response.json()
 // }
 
-// const getAlbums = async (data) => {
+const getAlbums = async (data) => {
 
-//   const result = await fetch(
-//       "https://api.spotify.com/v1/browse/new-releases", {
-//       method: "GET",
-//            headers: {
-//            Accept: "application/json",
-//            "Content-Type": "application/json",
-//            Authorization: data,
-//         }
-//   })
-//   if(!result.ok) { throw new Error("Failed to fetch album")}
-//   return result.json()
-// }
+  const result = await fetch(
+      "https://api.spotify.com/v1/browse/new-releases", {
+      method: "GET",
+           headers: {
+           Accept: "application/json",
+           "Content-Type": "application/json",
+           Authorization: data,
+        }
+  })
+  if(!result.ok) { throw new Error("Failed to fetch album")}
+  return result.json()
+}
 
 
 
@@ -38,7 +38,7 @@ const Albums = () => {
     const {data} = useAuth();
     console.log(data)
 
-//  const albums = getAlbums();
+ const albums = getAlbums();
 
   return (
     <main className="p-5">
