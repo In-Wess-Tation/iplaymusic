@@ -19,12 +19,12 @@ export default function RootLayout({ children }) {
   return (
         <AuthProvider>
     <html lang="en">
-      <body className={poppins.className}>
-          <PageWrapper>
-            <Header />
-            {children}
-          </PageWrapper>
-          <FooterWrapper /> 
+      <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
+        <PageWrapper>
+          <Header />
+          {children}
+        </PageWrapper>
+        <FooterWrapper /> 
         </body>
     </html>
         </AuthProvider>
