@@ -1,7 +1,10 @@
-import Footer from './components/Footer'
-import FooterWrapper from './components/FooterWrapper'
-import Header from './components/Header'
+import Footer from './components/footer, header og nav/Footer'
+import FooterWrapper from './components/footer, header og nav/FooterWrapper'
+import Header from './components/footer, header og nav/Header'
 import PageWrapper from './components/PageWrapper'
+
+import AuthProvider from './contexts/AuthContext'
+
 import './globals.css'
 import { Poppins } from 'next/font/google'
 
@@ -14,6 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+        <AuthProvider>
     <html lang="en">
       <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
         <PageWrapper>
@@ -23,5 +27,6 @@ export default function RootLayout({ children }) {
         <FooterWrapper /> 
         </body>
     </html>
+        </AuthProvider>
   )
 }
