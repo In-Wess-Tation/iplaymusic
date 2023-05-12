@@ -15,7 +15,7 @@ import useAuth from "../hooks/useAuth";
 // return await response.json()
 // }
 
-const getAlbums = async (data) => {
+const getAlbums = async (token) => {
 
   const result = await fetch(
       "https://api.spotify.com/v1/browse/new-releases", {
@@ -23,11 +23,11 @@ const getAlbums = async (data) => {
            headers: {
            Accept: "application/json",
            "Content-Type": "application/json",
-           Authorization: data,
+           Authorization: token,
         }
   })
-  if(!result.ok) { throw new Error("Failed to fetch album")}
-  return result.json()
+  if(!result.ok) { throw new Error("Failed to fetch albums")}
+  return await result.json()
 }
 
 
@@ -35,8 +35,8 @@ const getAlbums = async (data) => {
 const Albums = () => {
 
   
-    const {data} = useAuth();
-    console.log(data)
+    const { token } = useAuth();
+    console.log(token)
 
  const albums = getAlbums();
 
