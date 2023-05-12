@@ -1,4 +1,5 @@
-import FeaturedCards from "./components/FeaturedCards";
+import FeaturedCards from "./components/footer, header og nav/FeaturedCards";
+
 
 export default async function Home() {
 
