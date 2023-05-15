@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-        <AuthProvider>
+      <AuthProvider>
     <html lang="en">
       <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
         <PageWrapper>
