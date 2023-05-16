@@ -34,15 +34,15 @@ import useAuth from "../hooks/useAuth";
 
 const Albums = () => {
 
-  
-    const {data} = useAuth();
-    console.log(data)
 
-//  const albums = getAlbums();
+  const { data } = useAuth();
+  console.log(data)
+
+  //  const albums = getAlbums();
 
   return (
     <main className="p-5">
-      <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ee0979] to-[#ff6a00]">All Albums</h1>
+      <HeadlinePage headline={"All Albums"} />
       <section>
         <div className="flex justify-between py-5">
           <h2 className="font-bold">Featured Albums</h2>
@@ -53,13 +53,13 @@ const Albums = () => {
 
           </article>
         ))} */}
-    
+
 
         <div className="flex justify-between py-5">
           <h2 className="font-bold">New Releases</h2>
           <p className="text-[#EE0979]">View All</p>
         </div>
-     
+
       </section>
     </main>
   );
