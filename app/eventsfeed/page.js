@@ -7,12 +7,14 @@ const EventsFeed = () => {
     return (
         <main className="grid w-full">
             <HeadlinePage headline={"Events Feed"} />
-            <div className="flex w-auto h-20 justify-between overflow-x-scroll my-2">
-                <HashtagBox />
-                <HashtagBox />
-                <HashtagBox />
-                <HashtagBox />
-                <HashtagBox />
+            <div className="ml-8">
+                <div className="flex w-auto h-20 justify-between overflow-x-scroll my-2">
+                    <HashtagBox />
+                    <HashtagBox />
+                    <HashtagBox />
+                    <HashtagBox />
+                    <HashtagBox />
+                </div>
             </div>
             <EventCard />
         </main>
