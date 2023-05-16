@@ -7,9 +7,10 @@ const Login = () => {
     console.log("et eller andet", id)
 
     return ( 
-        <main>
+        <main className="text-center">
             <Link href={`https://accounts.spotify.com/authorize?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000/callback`}
-            >Log in med spotify</Link>
+            className="text-2xl"
+            >Log in with Spotify</Link>
         </main>
      );
 }
