@@ -7,7 +7,7 @@ const EventsFeed = () => {
     return (
         <main className="grid w-full">
             <HeadlinePage headline={"Events Feed"} />
-            <div className="flex w-full h-20 justify-between overflow-x-scroll ml-10 my-2">
+            <div className="flex w-auto h-20 justify-between overflow-x-scroll my-2">
                 <HashtagBox />
                 <HashtagBox />
                 <HashtagBox />
