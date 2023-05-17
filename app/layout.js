@@ -1,8 +1,6 @@
-import Footer from './components/footer, header og nav/Footer'
+import PageWrapper from './components/PageWrapper'
 import FooterWrapper from './components/footer, header og nav/FooterWrapper'
 import Header from './components/footer, header og nav/Header'
-import PageWrapper from './components/PageWrapper'
-
 import AuthProvider from './contexts/AuthContext'
 
 import './globals.css'

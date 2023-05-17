@@ -1,26 +1,27 @@
 import HeadlinePage from "../components/HeadlinePage";
+import TrendingBox from "../components/TrendingBox";
 import TrendsCards from "../components/TrendsCards";
 
 
 const LatestTrends = () => {
     return (
-        <main>
+        <main className="grid w-full">
             <HeadlinePage headline={"Latest Trends"} />
-            <article className="">
-                <TrendsCards />
-                <div className="w-[98%] h-72 bg-[#EE0979] rounded-3xl ml-2.5 -z-20 flex items-center gap-x-10">
-                    <h2 className="capitalize text-white font-semibold pl-4">Trending now</h2>
-                    <div className="w-72 h-32 overflow-x-scroll flex justify-between">
-                        <div className="w-32 min-w-32 h-32 bg-black ml-2"></div>
-                        <div className="w-32 min-w-32 h-32 bg-black ml-2"></div>
-                        <div className="w-32 min-w-32 h-32 bg-black ml-2"></div>
-                        <div className="w-32 min-w-32 h-32 bg-black ml-2"></div>
-                        <div className="w-32 min-w-32 h-32 bg-black ml-2"></div>
-                        <div className="w-32 min-w-32 h-32 bg-black ml-2"></div>
-                    </div>
+                <div className="relative top-3 justify-self-center">
+                    <TrendsCards />
                 </div>
-                <TrendsCards />
-            </article>
+                    <div className="w-[98%] h-[18rem] bg-[#ee0979] rounded-3xl ml-2">
+                        <h2 className="capitalize text-white font-semibold pl-3 relative top-32">Trending now</h2>
+                        <div className="flex w-auto h-32 justify-between overflow-x-scroll my-14 ml-[9rem] no-scrollbar">
+                            <TrendingBox />
+                            <TrendingBox />
+                            <TrendingBox />
+                            <TrendingBox />
+                        </div>
+                    </div>
+                <div className="relative bottom-3 justify-self-center">
+                    <TrendsCards />
+                </div>
         </main>
     );
 }
