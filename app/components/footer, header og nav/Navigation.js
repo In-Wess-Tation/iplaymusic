@@ -19,12 +19,12 @@ const Navigation = () => {
    // }
 
     return ( 
-        <nav className="flex text-[#ee0979] justify-between items-center my-4 mx-2">
-           <Link href={"/"} className={`text-4xl ${pathname == "/" ? "text-[#111625] dark:text-white" : ""}`}><TbWaveSawTool /></Link>            
-           <Link href={"/playlists"} className={`text-4xl ${pathname == "/playlists" ? "text-[#111625] dark:text-white" : ""}`}><IoIosMicrophone className=""/></Link> 
-           <Link href={"/player"} className={`text-5xl bg-gradient-to-t from-[#ee0979] to-[#ff6a00] rounded-full p-2 ${pathname == "/player" ? "bg-[#111625] dark:bg-white" : ""}`}><TbRadar2 className={`text-white dark:text-[#111625] ${pathname == "/" ? "" : ""}`}/></Link> 
+        <nav className="flex justify-between items-center my-4 mx-2">
+           <Link href={"/"} className={`text-4xl text-pink ${pathname == "/" ? "text-kinda-black dark:text-white" : ""}`}><TbWaveSawTool /></Link>            
+           <Link href={"/playlists"} className={`text-4xl text-pink ${pathname == "/playlists" ? "text-kinda-black dark:text-white" : ""}`}><IoIosMicrophone className=""/></Link> 
+           <Link href={"/player"} className={`text-5xl bg-gradient-to-t from-pink to-orange rounded-full p-2 ${pathname == "/player" ? "bg-gradient-to-t from-kinda-black to-kinda-black dark:bg-gradient-to-t dark:from-white dark:to-white text-pink" : ""}`}><TbRadar2 className=""/></Link> 
            <DarkMode />
-           <Link href={"/settings"} className={`text-3xl ${pathname == "/settings" ? "text-[#111625] dark:text-white" : ""}`}><IoSettingsSharp /></Link> 
+           <Link href={"/settings"} className={`text-3xl text-pink ${pathname == "/settings" ? "text-kinda-black dark:text-white" : ""}`}><IoSettingsSharp /></Link> 
         </nav>
      );
 }
