@@ -44,24 +44,24 @@ const getAlbums = async () => {
 
   return (
     <main className="p-5">
-      <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ee0979] to-[#ff6a00]">All Albums</h1>
+      <HeadlinePage headline={"All Albums"} />
       <section>
         <div className="flex justify-between py-5">
           <h2 className="font-bold">Featured Albums</h2>
-          <p className="text-[#EE0979]">View All</p>
+          <p className="text-pink">View All</p>
         </div>
         {/* {albums.items.map(album => (
           <article>
             <img src={album.images.url} alt={album.images.url} />
           </article>
         ))} */}
-    
+
 
         <div className="flex justify-between py-5">
           <h2 className="font-bold">New Releases</h2>
-          <p className="text-[#EE0979]">View All</p>
+          <p className="text-pink">View All</p>
         </div>
-     
+
       </section>
     </main>
   );
