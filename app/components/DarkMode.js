@@ -7,7 +7,7 @@ const DarkMode = () => {
 
 
     return ( 
-        <button className={`text-4xl text-pink`} ><CgDarkMode /></button>
+        <button className={`text-4xl text-pink-yyyy`} ><CgDarkMode /></button>
      );
 }
  

@@ -14,7 +14,7 @@ module.exports = {
       },
       colors: {
         'kinda-black': '#111625',
-        'pink': '#ee0979',
+        'pink-yyyy': '#ee0979',
         'orange': '#ff6a00'
       }
     },
