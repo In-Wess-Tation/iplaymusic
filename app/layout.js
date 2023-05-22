@@ -18,7 +18,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <AuthProvider>
         <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
           <PageWrapper>
             <Header />
@@ -26,7 +25,6 @@ export default function RootLayout({ children }) {
           </PageWrapper>
           <FooterWrapper /> 
           </body>
-        </AuthProvider>
     </html>
   )
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 const Login = () => {
 
     const id = process.env.NEXT_PUBLIC_CLIENT_ID;
-    console.log("et eller andet", id)
+    
 
     return ( 
         <main className="text-center">

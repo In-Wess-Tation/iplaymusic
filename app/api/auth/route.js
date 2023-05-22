@@ -1,32 +1,36 @@
 import axios from "axios";
+import { cookies } from "next/headers";
 
 export async function POST(request) {
     let body = await request.json();
+    console.log("here is ", body)
 
     const authOptions = {
         url: "https://accounts.spotify.com/api/token",
         method: "post",
         params: {
             code: body.code,
-            redirect_url: "http://localhost:3000/callback",
-            grant_type: "authoriaztion_code",
+            redirect_uri: "http://localhost:3000/callback",
+            grant_type: "authorization_code",
         },
         headers: {
             Authorization: 
-            "Basic" + 
+            "Basic " + 
             Buffer.from(
                 process.env.NEXT_PUBLIC_CLIENT_ID + 
                 ":" +
                 process.env.NEXT_PUBLIC_CLIENT_SECRET
             ).toString("base64"),
         },
-        json:true,
+        json: true,
     };
 
     try {
         let response = await axios(authOptions)
 
         console.log(response.data)
+
+        cookies().set("token", response.data.access_token)
 
         return{
             statusCode: 201,

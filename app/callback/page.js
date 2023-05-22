@@ -16,7 +16,9 @@ const Callback = () => {
             body: JSON.stringify({ code })
         })
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => {
+            localStorage.setItem("access", JSON.stringify(result))
+        })
     }, []);
 
     return null;
