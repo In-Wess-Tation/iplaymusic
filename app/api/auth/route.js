@@ -1,5 +1,4 @@
 import axios from "axios";
-import { cookies } from "next/headers";
 
 export async function POST(request) {
     let body = await request.json();
@@ -29,20 +28,10 @@ export async function POST(request) {
         let response = await axios(authOptions)
 
         console.log(response.data)
-
-        cookies().set("token", response.data.access_token)
-
-        return{
-            statusCode: 201,
-            body: JSON.stringify(response.data),
-        }
+        return new Response(JSON.stringify(response.data))
     } catch (error) {
         console.log(error)
-
-        return {
-            statusCode: 500,
-            body: "Internal server error..."
-        }
+        return new Response({message: "Blerb"})
     }
 }
 

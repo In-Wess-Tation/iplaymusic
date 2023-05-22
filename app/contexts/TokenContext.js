@@ -1,8 +1,12 @@
-// "use client";
+"use client";
 // import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
 
 
-// export const AuthContext = createContext();
+ const TokenContext = createContext();
+ export default TokenContext;
+
+
 
 // const AuthProvider = (props) => {
     
