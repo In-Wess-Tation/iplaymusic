@@ -1,8 +1,8 @@
-"use client"
-import useAuth from "../hooks/useAuth";
-
+"use client";
 
 // access_token = BQC5IdkdrHg9_rjEPO2iPMUifR7-idmbC6al9GXl7zmFN3SmJy1KJgMTo2rvH8YmG8kQXospSDGMZ2_IHnIKUM7falo7kTGE_i3gqOjA8N251V59_WF3
+
+import { useEffect } from "react";
 
 // const getAlbums = async (data) => {
 //   const response = await fetch("https://api.spotify.com/v1/browse/new-releases",
@@ -15,28 +15,30 @@ import useAuth from "../hooks/useAuth";
 // return await response.json()
 // }
 
-const getAlbums = async (token) => {
-
-  const result = await fetch(
-      "https://api.spotify.com/v1/browse/new-releases", {
-      method: "GET",
-           headers: {
-           Accept: "application/json",
-           "Content-Type": "application/json",
-           Authorization: token,
-        }
-  })
-  if(!result.ok) { throw new Error("Failed to fetch albums")}
-  return await result.json()
-}
-
-
-
-const Albums = () => {
+const getAlbums = async () => {
 
   
-    const { token } = useAuth();
-    console.log(token)
+  const result = await fetch(
+    "https://api.spotify.com/v1/me/albums", {
+      // method: "GET",
+      headers: {
+        //  Accept: "application/json",
+        //  "Content-Type": "application/json",
+        Authorization: "Bearer" + token,
+      }
+    })
+    if(!result.ok) {throw new Error("Failed to fetch albums")}
+    return await result.json()
+    
+  }
+  
+  
+  
+  const Albums = () => {
+    
+    useEffect(() => {
+      getAlbums().then(result => console.log(result))
+    }, []);
 
  const albums = getAlbums();
 
@@ -48,9 +50,9 @@ const Albums = () => {
           <h2 className="font-bold">Featured Albums</h2>
           <p className="text-[#EE0979]">View All</p>
         </div>
-        {/* {albums.albums.items.map(album => (
+        {/* {albums.items.map(album => (
           <article>
-
+            <img src={album.images.url} alt={album.images.url} />
           </article>
         ))} */}
     
