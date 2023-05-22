@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
       <AuthProvider>
     <html lang="en">
-      <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
+      <body className={`dark:bg-[#151415] bg-white dark:text-white ${poppins.className}`}>
         <PageWrapper>
           <Header />
           {children}
