@@ -46,7 +46,7 @@ const Albums = () => {
       <section>
         <div className="flex justify-between py-5">
           <h2 className="font-bold">Featured Albums</h2>
-          <p className="text-[#EE0979]">View All</p>
+          <p className="text-pink">View All</p>
         </div>
         {/* {albums.albums.items.map(album => (
           <article>
@@ -57,7 +57,7 @@ const Albums = () => {
 
         <div className="flex justify-between py-5">
           <h2 className="font-bold">New Releases</h2>
-          <p className="text-[#EE0979]">View All</p>
+          <p className="text-pink">View All</p>
         </div>
 
       </section>
