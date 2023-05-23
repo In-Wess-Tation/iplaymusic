@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   const [token, setToken] = useState(null);
 
   return (
-    <TokenContext.Provider value={{token, setToken}}>
+    <TokenContext.Provider value={[token, setToken]}>
     <html lang="en">
         <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
           <PageWrapper>

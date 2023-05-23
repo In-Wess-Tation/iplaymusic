@@ -4,11 +4,15 @@ import { useContext, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import axios from "axios"
 import TokenContext from "../contexts/TokenContext";
+import { useRouter } from "next/navigation";
 
 
 const Callback = () => {
 
-    const {setToken} = useContext(TokenContext)
+    const [token, setToken] = useContext(TokenContext);
+    const router = useRouter();
+
+    console.log(setToken)
 
     const seachParams = useSearchParams();
     const code = seachParams.get("code");
@@ -22,6 +26,7 @@ const Callback = () => {
         .then(response => {
             console.log(response)
             setToken(response.data)
+            router.push("/featured")
         })
         .catch(err => console.log(err))
         /* fetch("http://localhost:3000/api/auth", {

@@ -2,7 +2,9 @@
 
 // access_token = BQC5IdkdrHg9_rjEPO2iPMUifR7-idmbC6al9GXl7zmFN3SmJy1KJgMTo2rvH8YmG8kQXospSDGMZ2_IHnIKUM7falo7kTGE_i3gqOjA8N251V59_WF3
 
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import HeadlinePage from "../components/HeadlinePage";
+import TokenContext from "../contexts/TokenContext";
 
 // const getAlbums = async (data) => {
 //   const response = await fetch("https://api.spotify.com/v1/browse/new-releases",
@@ -17,6 +19,7 @@ import { useEffect } from "react";
 
 const getAlbums = async () => {
 
+    const [token] = useContext(TokenContext)
   
   const result = await fetch(
     "https://api.spotify.com/v1/me/albums", {
@@ -24,7 +27,7 @@ const getAlbums = async () => {
       headers: {
         //  Accept: "application/json",
         //  "Content-Type": "application/json",
-        Authorization: "Bearer" + token,
+        Authorization: "Bearer " + token.access_token,
       }
     })
     if(!result.ok) {throw new Error("Failed to fetch albums")}
