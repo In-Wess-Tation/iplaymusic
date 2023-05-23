@@ -6,7 +6,7 @@ const Header = ({headline}) => {
     return ( 
         <header className="flex justify-between m-4">
             <Link href={"/featured"}><IoIosArrowBack className="text-xl"/></Link>
-            <h1 className="capitalize">Featured</h1>
+            <h1 className="capitalize">Music</h1>
             <Link href={"/"}><AiOutlineSearch className="text-xl"/></Link>
         </header>
      );
