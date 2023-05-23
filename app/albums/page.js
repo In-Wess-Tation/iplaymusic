@@ -1,4 +1,5 @@
 "use client"
+import HeadlinePage from "../components/HeadlinePage";
 import useAuth from "../hooks/useAuth";
 
 
