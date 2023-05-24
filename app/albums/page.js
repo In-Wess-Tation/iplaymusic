@@ -6,20 +6,8 @@ import { useContext, useEffect } from "react";
 import HeadlinePage from "../components/HeadlinePage";
 import TokenContext from "../contexts/TokenContext";
 
-// const getAlbums = async (data) => {
-//   const response = await fetch("https://api.spotify.com/v1/browse/new-releases",
-//     {
-//       headers: {
-//         Authorization: data,
-//       },
-//     }
-//   )
-// return await response.json()
-// }
+const getAlbums = async (token) => {
 
-const getAlbums = async () => {
-
-    const [token] = useContext(TokenContext)
   
   const result = await fetch(
     "https://api.spotify.com/v1/me/albums", {
@@ -38,12 +26,11 @@ const getAlbums = async () => {
   
   
   const Albums = () => {
-    
-    useEffect(() => {
-      getAlbums().then(result => console.log(result))
-    }, []);
 
- const albums = getAlbums();
+    const [token] = useContext(TokenContext)
+    
+    const albums = getAlbums(token);
+    console.log(albums)
 
   return (
     <main className="p-5">
