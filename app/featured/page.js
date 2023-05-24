@@ -6,7 +6,7 @@ const Featured = () => {
   return (
     <main className="grid">
       <HeadlinePage headline={"Featured"} />
-      <FeaturedCards />
+      <FeaturedCards heading={"the greatest showman"}/>
     </main>
   );
 }
