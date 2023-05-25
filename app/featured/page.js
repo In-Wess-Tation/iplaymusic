@@ -23,17 +23,19 @@ const getFeatured = async (token) => {
     
   }
 
-const Featured = () => {
+const Featured = async () => {
 
   const [token] = useContext(TokenContext)
 
-  const featured = getFeatured(token)
+  const featured = await getFeatured(token)
   console.log(featured)
 
   return (
-    <main className="grid">
+    <main className="grid mb-28">
       <HeadlinePage headline={"Featured"} />
-      <FeaturedCards headline={"hej"}/>
+      {featured.playlists.items.map(item => (
+        <FeaturedCards key={item.id} headline={"hej"} url={item.images[0].url}/>
+      ))}
     </main>
   );
 }
