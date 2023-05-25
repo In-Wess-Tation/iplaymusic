@@ -33,6 +33,7 @@ const Featured = async () => {
   return (
     <main className="grid mb-28">
       <HeadlinePage headline={"Featured"} />
+
       {featured.playlists.items.map(item => (
         <FeaturedCards key={item.id} headline={"hej"} url={item.images[0].url}/>
       ))}

@@ -4,8 +4,8 @@ import HeadlinePage from "../components/HeadlinePage";
 const Categories = () => {
 
     return (
-        <main className="grid gap-y-4">
-            <HeadlinePage headline={"Categories"} />
+        <main className="grid gap-y-4 h-screen">
+            <HeadlinePage headline={"Categories"}/>
             <CategoriesProp headline={"Alternative"} bgprimary="bg-[#FF1168]" />
             <CategoriesProp headline={"Blues"} bgprimary="bg-[#E54028]" />
             <CategoriesProp headline={"Classical"} bgprimary="bg-[#F18D05]" />

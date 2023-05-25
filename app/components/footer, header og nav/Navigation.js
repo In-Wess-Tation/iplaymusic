@@ -20,11 +20,11 @@ const Navigation = () => {
 
     return ( 
         <nav className="flex justify-between items-center my-4 mx-2">
-         <Link href={"/albums"} className={`text-4xl text-pink-yyyy ${pathname == "/" ? "text-black dark:text-white" : ""}`}><TbWaveSawTool /></Link>
-         <Link href={"/playlists"} className={`text-4xl text-pink-yyyy ${pathname == "/playlists" ? "text-black dark:text-white" : ""}`}><IoIosMicrophone /></Link>
-         <Link href={"/featured"} className={`text-5xl text-white bg-gradient-to-t from-pink-yyyy to-orange p-2 rounded-full ${pathname == "/player" ? "bg-gradient-to-t from-kinda-black to-kinda-black dark:from-white dark:to-white text-pink-600" : ""}`}><TbRadar2 /></Link>
+         <Link href={"/albums"} className={pathname == "/albums" ? "text-black dark:text-white text-4xl" : "text-pink-yyyy text-4xl"}><TbWaveSawTool /></Link>
+         <Link href={"/playlists"} className={pathname == "/playlists" ? "text-black dark:text-white text-4xl" : "text-pink-yyyy text-4xl"}><IoIosMicrophone /></Link>
+         <Link href={"/featured"} className={pathname == "/featured" ? "text-pink-yyyy text-5xl bg-gradient-to-t from-black to-black dark:from-white dark:to-white p-2 rounded-full" : "text-white text-5xl bg-gradient-to-t from-pink-yyyy to-orange rounded-full p-2"}><TbRadar2 /></Link>
          <DarkMode />
-         <Link href={"/categories"} className={`text-3xl text-pink-yyyy ${pathname == "/settings" ? "text-black dark:text-white" : ""}`}><IoSettingsSharp /></Link>
+         <Link href={"/categories"} className={pathname == "/categories" ? "text-black dark:text-white text-3xl" : "text-pink-yyyy text-3xl"}><IoSettingsSharp /></Link>
         </nav>
      );
 }
