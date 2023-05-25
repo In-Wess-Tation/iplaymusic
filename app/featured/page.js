@@ -35,7 +35,7 @@ const Featured = async () => {
       <HeadlinePage headline={"Featured"} />
 
       {featured.playlists.items.map(item => (
-        <FeaturedCards key={item.id} headline={"hej"} url={item.images[0].url}/>
+        <FeaturedCards key={item.id} headline={"hej"} url={item.images[0].url} alt={item.name}/>
       ))}
     </main>
   );
