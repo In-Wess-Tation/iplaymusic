@@ -2,44 +2,37 @@
 import HeadlinePage from "../components/HeadlinePage";
 import useAuth from "../hooks/useAuth";
 
-
 // access_token = BQC5IdkdrHg9_rjEPO2iPMUifR7-idmbC6al9GXl7zmFN3SmJy1KJgMTo2rvH8YmG8kQXospSDGMZ2_IHnIKUM7falo7kTGE_i3gqOjA8N251V59_WF3
 
-// const getAlbums = async (data) => {
-//   const response = await fetch("https://api.spotify.com/v1/browse/new-releases",
-//     {
-//       headers: {
-//         Authorization: data,
-//       },
-//     }
-//   )
-// return await response.json()
-// }
+import { useContext, useEffect } from "react";
+import HeadlinePage from "../components/HeadlinePage";
+import TokenContext from "../contexts/TokenContext";
 
-// const getAlbums = async (data) => {
+const getAlbums = async (token) => {
 
-//   const result = await fetch(
-//       "https://api.spotify.com/v1/browse/new-releases", {
-//       method: "GET",
-//            headers: {
-//            Accept: "application/json",
-//            "Content-Type": "application/json",
-//            Authorization: data,
-//         }
-//   })
-//   if(!result.ok) { throw new Error("Failed to fetch album")}
-//   return result.json()
-// }
+  
+  const result = await fetch(
+    "https://api.spotify.com/v1/me/albums", {
+      // method: "GET",
+      headers: {
+        //  Accept: "application/json",
+        //  "Content-Type": "application/json",
+        Authorization: "Bearer " + token.access_token,
+      }
+    })
+    if(!result.ok) {throw new Error("Failed to fetch albums")}
+    return await result.json()
+    
+  }
+  
+  
+  
+  const Albums = () => {
 
-
-
-const Albums = () => {
-
-
-  const { data } = useAuth();
-  console.log(data)
-
-  //  const albums = getAlbums();
+    const [token] = useContext(TokenContext)
+    
+    const albums = getAlbums(token);
+    console.log(albums)
 
   return (
     <main className="p-5">
@@ -49,9 +42,9 @@ const Albums = () => {
           <h2 className="font-bold">Featured Albums</h2>
           <p className="text-pink">View All</p>
         </div>
-        {/* {albums.albums.items.map(album => (
+        {/* {albums.items.map(album => (
           <article>
-
+            <img src={album.images.url} alt={album.images.url} />
           </article>
         ))} */}
 

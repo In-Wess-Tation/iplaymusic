@@ -1,10 +1,13 @@
-import PageWrapper from './components/PageWrapper'
+"use client";
+
+import { useState } from 'react';
 import FooterWrapper from './components/footer, header og nav/FooterWrapper'
 import Header from './components/footer, header og nav/Header'
-import AuthProvider from './contexts/AuthContext'
+import PageWrapper from './components/PageWrapper'
 
 import './globals.css'
 import { Poppins } from 'next/font/google'
+import TokenContext from './contexts/TokenContext';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] })
 
@@ -14,17 +17,20 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
+  const [token, setToken] = useState(null);
+
   return (
-      <AuthProvider>
+    <TokenContext.Provider value={[token, setToken]}>
     <html lang="en">
-      <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
-        <PageWrapper>
-          <Header />
-          {children}
-        </PageWrapper>
-        <FooterWrapper /> 
-        </body>
+        <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
+          <PageWrapper>
+            <Header />
+            {children}
+          </PageWrapper>
+          <FooterWrapper /> 
+          </body>
     </html>
-        </AuthProvider>
+    </TokenContext.Provider>
   )
 }
