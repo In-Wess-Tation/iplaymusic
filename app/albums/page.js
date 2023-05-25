@@ -1,6 +1,4 @@
 "use client"
-import HeadlinePage from "../components/HeadlinePage";
-import useAuth from "../hooks/useAuth";
 
 // access_token = BQC5IdkdrHg9_rjEPO2iPMUifR7-idmbC6al9GXl7zmFN3SmJy1KJgMTo2rvH8YmG8kQXospSDGMZ2_IHnIKUM7falo7kTGE_i3gqOjA8N251V59_WF3
 

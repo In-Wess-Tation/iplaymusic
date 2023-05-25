@@ -28,7 +28,7 @@ const Featured = async () => {
   const [token] = useContext(TokenContext)
 
   const featured = await getFeatured(token)
-  console.log(featured)
+  // console.log(featured)
 
   return (
     <main className="grid mb-28">
