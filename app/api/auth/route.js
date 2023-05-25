@@ -10,6 +10,7 @@ export async function POST(request) {
         params: {
             code: body.code,
             redirect_uri: "http://localhost:3000/callback",
+            // if you put a slash in the end of url - then the 403 error then changes to 401 - unauthorized.
             grant_type: "authorization_code",
         },
         headers: {
