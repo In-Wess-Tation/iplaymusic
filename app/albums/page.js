@@ -53,17 +53,22 @@ const getAlbums = async (token) => {
           <h2 className="font-bold">New Releases</h2>
           <p className="text-pink">View All</p>
         </div>
+        
         {albums.albums.items.map(item => (
             <Link key={item.id} className="flex pb-5 gap-5" href={`/albums/${item.id}`}>
               <img className="rounded h-12 w-12" src={item.images[0].url} alt="Album picture" />
-              <article className="flex gap-24">
+
+              <article className="flex justify-between">
               <div>
-                  <p className="font-bold">{item.name}</p>
-                  <p className="text-xs">{item.artists[0].name}</p>
+                <p className="font-bold">{item.name}</p>
+                <p className="text-xs">{item.artists[0].name}</p>
               </div>
-              <p className="text-xs">{item.total_tracks} Songs</p>
+
+              <div>
+                <p className="text-xs">{item.total_tracks} Songs</p>
+              </div>
               </article>
-              
+
             </Link>
               ))}
       </section>

@@ -22,10 +22,10 @@ import { useContext } from "react";
 //     return result.json()
 // }
 
-const getAlbumsId = async (albumId, token) => {
+const getAlbumsId = async (token, albumId) => {
   
     const result = await fetch(
-        `https://api.spotify.com/v1/browse/new-releases/${albumId}`, {
+        `https://api.spotify.com/v1/albums/${albumId}`, {
         // method: "GET",
         headers: {
           //  Accept: "application/json",
@@ -48,12 +48,34 @@ const AlbumsId = async ({params: { albumId }}) => {
     
     const [token] = useContext(TokenContext)
     
-    const albums = await getAlbumsId(token);
+    const albums = await getAlbumsId(token, albumId);
     console.log(albums)
 
     return ( 
         <main>
             <h1>This is album detail</h1>
+            <section>
+                <div className="relative">
+                <img className="relative" src={albums.images[0].url} alt="" />
+                </div>
+
+                <article className="absolute">
+                  <div>
+                    <h1>{albums.name}</h1>
+                    <p>{albums.total_tracks}</p>
+                  </div>
+
+                  <div>
+                    <p>genre hastags</p>
+                     {albums.genres.map(genre => (
+                        <div>
+                            
+                        </div>
+                     ))}
+                   
+                  </div>
+                </article>
+            </section>
             {/* {albums.items.map(album => (
             <section>
                 <img src={item.images[0].url} alt={item.images[0].url} />
