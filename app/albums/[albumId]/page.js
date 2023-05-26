@@ -54,27 +54,32 @@ const AlbumsId = async ({params: { albumId }}) => {
     return ( 
         <main>
             <h1>This is album detail</h1>
-            <section>
-                <div className="relative">
-                <img className="relative" src={albums.images[0].url} alt="" />
+            <section >
+                <div className="">
+                <img className="" src={albums.images[0].url} alt="" />
                 </div>
-
-                <article className="absolute">
+                <article className="">
                   <div>
-                    <h1>{albums.name}</h1>
-                    <p>{albums.total_tracks}</p>
+                    <h1 className="text-2xl font-bold">{albums.name}</h1>
+                    <p className="font-bold">{albums.total_tracks}</p>
                   </div>
 
-                  <div>
-                    <p>genre hastags</p>
-                     {albums.genres.map(genre => (
-                        <div>
-                            
-                        </div>
-                     ))}
-                   
-                  </div>
                 </article>
+
+            </section >
+
+            
+            <section>
+               
+                {albums.tracks.items.map(track => (
+                <article key={track.id} className="flex justify-between pb-5 leading-10">
+                    <div>
+                    <p className="font-bold">{track.name}</p>
+                    <p className="text-xs">{track.artists[0].name}</p>
+                    </div>
+                    <p className="text-xs">{track.duration_ms}</p>
+                </article>
+                    ))}
             </section>
             {/* {albums.items.map(album => (
             <section>
