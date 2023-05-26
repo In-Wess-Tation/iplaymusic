@@ -1,5 +1,6 @@
 "use client";
 
+import PlaySong from "@/app/components/PlaySong";
 import TokenContext from "@/app/contexts/TokenContext";
 import { useContext } from "react";
 
@@ -73,6 +74,7 @@ const AlbumsId = async ({params: { albumId }}) => {
                
                 {albums.tracks.items.map(track => (
                 <article key={track.id} className="flex justify-between pb-5 leading-10">
+                    <PlaySong />
                     <div>
                     <p className="font-bold">{track.name}</p>
                     <p className="text-xs">{track.artists[0].name}</p>
