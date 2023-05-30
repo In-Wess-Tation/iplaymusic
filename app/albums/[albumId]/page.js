@@ -46,11 +46,17 @@ const getAlbumsId = async (token, albumId) => {
 
 const AlbumsId = async ({params: { albumId }}) => {
 
-    
-    const [token] = useContext(TokenContext)
-    
-    const albums = await getAlbumsId(token, albumId);
-    console.log(albums)
+  const [token] = useContext(TokenContext)
+  
+  const albums = await getAlbumsId(token, albumId);
+  console.log(albums)
+  
+  // const minutes = Math.floor(albums.tracks.duration_ms % 60);
+  // const seconds = albums.tracks.duration_ms % 60;
+
+  const minutes = Math.floor(albums.tracks.duration_ms / 60000);
+  const seconds = ((albums.tracks.duration_ms % 60000) / 1000).toFixed(0);
+
 
     return ( 
         <main>
@@ -79,11 +85,11 @@ const AlbumsId = async ({params: { albumId }}) => {
                         <p className="font-bold">{track.name}</p>
                         <p className="text-xs">{track.artists[0].name}</p>
                       </div>
-                      <p className="text-xs">{track.duration_ms}</p>
+                      <p className="text-xs">{minutes + seconds}</p>
                     </div>
                 </article>
                     ))}
-                    
+
             </section>
 
         </main>

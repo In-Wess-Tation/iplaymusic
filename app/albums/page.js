@@ -41,7 +41,7 @@ const getAlbums = async (token) => {
       <section className="pb-24">
         <div className="flex justify-between py-5">
           <h2 className="font-bold">Featured Albums</h2>
-          <p className="text-pink">View All</p>
+          <p className="text-pink-yyyy">View All</p>
         </div>
 
         <div className="overflow-x-scroll no-scrollbar">
@@ -51,13 +51,13 @@ const getAlbums = async (token) => {
 
         <div className="flex justify-between py-5">
           <h2 className="font-bold">New Releases</h2>
-          <p className="text-pink">View All</p>
+          <p className="text-pink-yyyy">View All</p>
         </div>
 
 
         <article>
         {albums.albums.items.map(item => (
-            <Link key={item.id} className="flex pb-5 gap-5" href={`/albums/${item.id}`}>
+            <Link key={item.id} className="grid grid-cols-[50px_minmax(260px,_1fr)_200px] pb-5 gap-5 md:grid-cols-[50px_minmax(700px,_1fr)_200px] lg:grid-cols-[50px_minmax(1300px,_1fr)_200px]" href={`/albums/${item.id}`}>
               <img className="rounded h-12 w-12" src={item.images[0].url} alt="Album picture" />
 
               <article className="flex justify-between">
