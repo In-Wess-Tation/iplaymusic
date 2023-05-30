@@ -54,15 +54,14 @@ const AlbumsId = async ({params: { albumId }}) => {
 
     return ( 
         <main>
-            <h1>This is album detail</h1>
-            <section >
-                <div className="">
-                <img className="" src={albums.images[0].url} alt="" />
+            <section className="pb-10">
+                <div>
+                <img src={albums.images[0].url} alt="" />
                 </div>
-                <article className="">
+                <article className="p-5 leading-10">
                   <div>
                     <h1 className="text-2xl font-bold">{albums.name}</h1>
-                    <p className="font-bold">{albums.total_tracks}</p>
+                    <p className="font-bold">{albums.total_tracks} Songs</p>
                   </div>
 
                 </article>
@@ -73,13 +72,16 @@ const AlbumsId = async ({params: { albumId }}) => {
             <section>
                
                 {albums.tracks.items.map(track => (
-                <article key={track.id} className="flex justify-between pb-5 leading-10">
+                <article key={track.id} className="grid grid-cols-[70px_minmax(300px,_1fr)_200px] pb-5 leading-10">
                     <PlaySong />
-                    <div>
-                    <p className="font-bold">{track.name}</p>
-                    <p className="text-xs">{track.artists[0].name}</p>
+                    <div className="flex justify-between">
+                      <div>
+                        <p className="font-bold">{track.name}</p>
+                        <p className="text-xs">{track.artists[0].name}</p>
+                      </div>
+                      <p className="text-xs">{track.duration_ms}</p>
                     </div>
-                    <p className="text-xs">{track.duration_ms}</p>
+                
                 </article>
                     ))}
             </section>
