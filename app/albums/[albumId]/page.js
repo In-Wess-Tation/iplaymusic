@@ -81,17 +81,11 @@ const AlbumsId = async ({params: { albumId }}) => {
                       </div>
                       <p className="text-xs">{track.duration_ms}</p>
                     </div>
-                
                 </article>
                     ))}
+                    
             </section>
-            {/* {albums.items.map(album => (
-            <section>
-                <img src={item.images[0].url} alt={item.images[0].url} />
-                <h1>{album.name}</h1>
-            </section>
-            ))} */}
-            
+
         </main>
      );
 }

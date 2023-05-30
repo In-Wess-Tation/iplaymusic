@@ -6,7 +6,7 @@ import TokenContext from "@/app/contexts/TokenContext";
 const getAlbums = async (token) => {
   
   const result = await fetch(
-    "https://api.spotify.com/v1/me/albums", {
+      "https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX%2C1A2GTWGtFfWp7KSQTwWOyo%2C2noRn2Aes5aoNVsU6iWThc", {
       // method: "GET",
       headers: {
         //  Accept: "application/json",
@@ -28,14 +28,14 @@ const FeaturedAlbums = async () => {
   const [token] = useContext(TokenContext)
     
   const albums = await getAlbums(token);
-  // console.log(albums)
+  console.log(albums)
 
     return ( 
         <article className="w-full h-40">
           <div className="flex w-screen h-40 gap-5">
-          {albums.items.map(item => (
+          {albums.albums.map(item => (
            <Link key={item.id} href={`/albums/${item.id}`}>
-              <img className="w-[200%] h-[100%] min-w-[200%] pr-[10rem]" src={item.album.images[0].url} alt="Album picture" />
+              <img className="w-[200%] h-[100%] min-w-[200%] pr-[10rem]" src={item.images[0].url} alt="Album picture" />
             </Link>
            ))}
            </div>
