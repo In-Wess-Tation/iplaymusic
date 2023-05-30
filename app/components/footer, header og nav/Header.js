@@ -8,7 +8,7 @@ const Header = ({ headline }) => {
             {/* <header className="flex justify-between w-full h-20 p-5 bg-transparent top-0 fixed"> */}
             <Link href={"/featured"}><IoIosArrowBack className="text-xl" /></Link>
             <h1 className="capitalize">Music</h1>
-            <Link href={"/"}><AiOutlineSearch className="text-xl" /></Link>
+            <Link href={"/search"}><AiOutlineSearch className="text-xl" /></Link>
         </header>
     );
 }

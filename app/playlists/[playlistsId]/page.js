@@ -25,7 +25,7 @@ const PlaylistsDetail = async ({ params: { playlistsId } }) => {
 
     return (
         <main>
-            hej
+           
         </main>
     );
 }

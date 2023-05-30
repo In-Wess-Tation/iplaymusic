@@ -36,15 +36,14 @@ const Playlists = async () => {
         <div className="">
           <div className="flex h-40 gap-x-4 justify-between overflow-x-scroll my-5 no-scrollbar mx-6">
             {playlists.items.map(item => (
-              // <Link href={`/playlists/{item.id}`} className="w-40 h-auto relative">
-              <img key={item.id} src={item.images[0].url} alt="" className="w-40 h-auto " />
-              // </Link>
+              <Link href={`/playlists/${item.id}`} className="w-40 h-40 relative">
+              <img key={item.id} src={item.images[0].url} alt="" className="w-40 h-40 absolute " />
+              </Link>
             ))}
           </div>
         </div>
       </article>
       <article>
-        <PlaySong />
       </article>
     </main>
   );
