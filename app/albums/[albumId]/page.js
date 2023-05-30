@@ -50,12 +50,6 @@ const AlbumsId = async ({params: { albumId }}) => {
   
   const albums = await getAlbumsId(token, albumId);
   console.log(albums)
-  
-  const minutes = Math.floor(albums.tracks.items[3] % 60);
-  const seconds = albums.tracks.items.duration_ms % 60;
-
-  // const minutes = Math.floor(albums.tracks.items.duration_ms / 60000);
-  // const seconds = ((albums.tracks.items.duration_ms % 60000) / 1000).toFixed(0);
 
 
     return ( 
@@ -85,7 +79,7 @@ const AlbumsId = async ({params: { albumId }}) => {
                         <p className="font-bold">{track.name}</p>
                         <p className="text-xs">{track.artists[0].name}</p>
                       </div>
-                      <p className="text-xs">{minutes + " : " + seconds}</p>
+                      <p className="text-xs">{Math.floor(track.duration_ms / 1000 / 60) % 60} : {(Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")}</p>
                     </div>
                 </article>
                     ))}
