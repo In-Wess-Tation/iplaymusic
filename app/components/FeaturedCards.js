@@ -3,9 +3,9 @@ import Link from "next/link";
 
 
 
-const FeaturedCards = ({url, alt}) => {
+const FeaturedCards = ({link, url, alt}) => {
     return ( 
-        <Link href={"/"} className="w-72 h-72 aspect-video rounded-2xl my-4 flex flex-col justify-end place-self-center relative">
+        <Link href={link} className="w-72 h-72 aspect-video rounded-2xl my-4 flex flex-col justify-end place-self-center relative">
             <Image src={url} alt={alt} width={1000} height={1000} className="absolute w-full h-full rounded-2xl object-contain" priority />
         </Link>
      );
