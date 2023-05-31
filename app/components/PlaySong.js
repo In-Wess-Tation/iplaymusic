@@ -5,16 +5,16 @@ import { FaPlay } from "react-icons/fa";
 const PlaySong = ({ song, artist, time }) => {
     return (
         <article className="flex gap-x-5 mx-4 justify-between">
-            <div className="flex gap-x-3">
-                <Link href={"/"} className="bg-gradient-to-t from-pink-yyyy to-orange w-10 h-10 rounded-full flex justify-center items-center">
-                    <FaPlay className="text-white" />
+            <div className="flex gap-x-5">
+                <Link href={"/"} className="bg-gradient-to-t from-pink-yyyy to-orange w-8 h-8 rounded-full flex justify-center items-center">
+                    <FaPlay className="text-white text-xs" />
                 </Link>
                 <div>
-                    <h2>{song}</h2>
-                    <p>{artist}</p>
+                    <h2 className="text-sm">{song}</h2>
+                    <p className="text-sm">{artist}</p>
                 </div>
             </div>
-            <p className="py-2.5">{time}</p>
+            <p className="py-0.5 text-sm">{time}</p>
         </article>
     );
 }
