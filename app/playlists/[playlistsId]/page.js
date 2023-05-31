@@ -1,7 +1,9 @@
 "use client"
 import PlaySong from "@/app/components/PlaySong"
 import TokenContext from "@/app/contexts/TokenContext"
+import Link from "next/link"
 import { useContext } from "react"
+import { FaPlay } from "react-icons/fa"
 
 const getPlaylists = async (token, playlistsId) => {
 
@@ -28,18 +30,27 @@ const PlaylistsDetail = async ({ params: { playlistsId } }) => {
         <main className="grid">
             {details && (
                 <>
-                    <div className="w-full h-[27rem] relative bg-black">
+                    <div className="w-full h-[25rem] relative bg-black">
                         <img src={details.images[0].url} alt="" className="w-full h-full absolute object-cover opacity-75" />
                     </div>
-                    <h1 className="px-6 py-12 text-2xl font-medium absolute text-white">{details.name}</h1>
-                    <h2 className="font-semibold pt-6 px-4">All Songs</h2>
+                    <div className="absolute pt-7 px-7">
+                        <h1 className=" text-2xl font-medium text-white drop-shadow">{details.name}</h1>
+                        <p className="text-white text-xs drop-shadow">Playlists by <span className="underline">{details.owner.display_name}</span></p>
+                    </div>
+                    <div className="pt-6 px-4">
+                        {/* <button className="bg-gradient-to-t from-pink-yyyy to-orange w-12 h-12 rounded-full flex justify-center items-center my-4">
+                            <FaPlay className="text-white" />
+                        </button> */}
+                        <h2 className="font-semibold ">All Songs</h2>
+                        <p className="text-sm"><span className="font-semibold">Songs: </span>{details.tracks.total}</p>
+                    </div>
                 </>
             )}
             <article className="grid gap-y-8 my-10">
-                {/* {details.tracks.items[0].map(item => (
-                    <PlaySong song={item.track.name} />
-                    // <p className="text-pink-yyyy">{item.name}</p>
-                ))} */}
+                {details?.tracks?.items?.map(item => (
+                    <PlaySong song={item?.track?.name} artist={item?.track?.artists[0]?.name} time={Math.floor(item?.track?.duration_ms / 1000 / 60) % 60 + ":" + (Math.floor(item?.track?.duration_ms / 1000) % 60).toString().padStart(2, "0")} />
+
+                ))}
             </article>
         </main>
     );

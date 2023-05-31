@@ -22,15 +22,15 @@ export default function RootLayout({ children }) {
 
   return (
     <TokenContext.Provider value={[token, setToken]}>
-    <html lang="en">
+      <html lang="en">
         <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
           <PageWrapper>
             <Header />
             {children}
           </PageWrapper>
-          <FooterWrapper /> 
-          </body>
-    </html>
+          <FooterWrapper />
+        </body>
+      </html>
     </TokenContext.Provider>
   )
 }

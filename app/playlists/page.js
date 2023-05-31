@@ -30,23 +30,26 @@ const Playlists = async () => {
 
   return (
     <main className="grid">
-      <article className="from-pink-yyyy via-orange to-white dark:to-dark-purple ">
-        {/* <h1 className="text-4xl font-bold pl-10 py-4">Playlists</h1> */}
-        <HeadlinePage headline={"Playlists"} />
-        <div className="">
-          <div className="flex h-40 gap-x-4 justify-between overflow-x-scroll my-5 no-scrollbar mx-6">
-            {playlists.items.map(item => (
-              <Link href={`/playlists/${item.id}`} className="w-40 h-40 relative">
-              <img key={item.id} src={item.images[0].url} alt="" className="w-40 h-40 absolute " />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </article>
-      <article>
+      <HeadlinePage headline={"Playlists"} />
+      <article className="grid grid-cols-2 gap-6 m-auto mb-6">
+        {playlists.items.map(item => (
+          <Link href={`/playlists/${item.id}`} className="w-40 h-40 relative">
+            <img key={item.id} src={item.images[0].url} alt="" className="w-40 h-40 absolute " />
+          </Link>
+        ))}
       </article>
     </main>
   );
 }
 
 export default Playlists;
+
+{/* <div className="">
+<div className="flex h-40 gap-x-4 justify-between overflow-x-scroll my-5 no-scrollbar mx-6">
+  {playlists.items.map(item => (
+    <Link href={`/playlists/${item.id}`} className="w-[65%] h-[85%] min-w-[45%] relative">
+      <img key={item.id} src={item.images[0].url} alt="" className="w-full h-full absolute " />
+    </Link>
+  ))}
+</div>
+</div> */}
