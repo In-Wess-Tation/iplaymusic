@@ -24,70 +24,70 @@ import { useContext } from "react";
 // }
 
 const getAlbumsId = async (token, albumId) => {
-  
-    const result = await fetch(
-        `https://api.spotify.com/v1/albums/${albumId}`, {
-        // method: "GET",
-        headers: {
-          //  Accept: "application/json",
-          //  "Content-Type": "application/json",
-          Authorization: "Bearer " + token.access_token,
-          //if you remove .access_token, the 403 error changes into 400 - bad request
-        }
-      })
-      // console.log(await result)
-      if(!result.ok) {throw new Error("Failed to fetch albums")}
-      return await result.json()
-      
+
+  const result = await fetch(
+    `https://api.spotify.com/v1/albums/${albumId}`, {
+    // method: "GET",
+    headers: {
+      //  Accept: "application/json",
+      //  "Content-Type": "application/json",
+      Authorization: "Bearer " + token.access_token,
+      //if you remove .access_token, the 403 error changes into 400 - bad request
     }
-    
+  })
+  // console.log(await result)
+  if (!result.ok) { throw new Error("Failed to fetch albums") }
+  return await result.json()
 
- 
+}
 
-const AlbumsId = async ({params: { albumId }}) => {
+
+
+
+const AlbumsId = async ({ params: { albumId } }) => {
 
   const [token] = useContext(TokenContext)
-  
+
   const albums = await getAlbumsId(token, albumId);
   console.log(albums)
 
 
-    return ( 
-        <main>
-            <section className="pb-10">
-                <div>
-                <img src={albums.images[0].url} alt="" />
-                </div>
-                <article className="p-5 leading-10">
-                  <div>
-                    <h1 className="text-2xl font-bold">{albums.name}</h1>
-                    <p className="font-bold">{albums.total_tracks} Songs</p>
-                  </div>
+  return (
+    <main>
+      <section className="pb-10">
+        <div>
+          <img src={albums.images[0].url} alt={albums.name} />
+        </div>
+        <article className="p-5 leading-10">
+          <div>
+            <h1 className="text-2xl font-bold">{albums.name}</h1>
+            <p className="font-bold">{albums.total_tracks} Songs</p>
+          </div>
 
-                </article>
+        </article>
 
-            </section >
+      </section >
 
-            
-            <section>
-               
-                {albums.tracks.items.map(track => (
-                <article key={track.id} className="grid grid-cols-[70px_minmax(300px,_1fr)_200px] pb-5 leading-10">
-                    <PlaySong />
-                    <div className="flex justify-between">
-                      <div>
-                        <p className="font-bold">{track.name}</p>
-                        <p className="text-xs">{track.artists[0].name}</p>
-                      </div>
-                      <p className="text-xs">{Math.floor(track.duration_ms / 1000 / 60) % 60} : {(Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")}</p>
-                    </div>
-                </article>
-                    ))}
 
-            </section>
+      <section>
 
-        </main>
-     );
+        {albums.tracks.items.map(track => (
+          <article key={track.id} className="grid grid-cols-[70px_minmax(300px,_1fr)_200px] pb-5 leading-10">
+            <PlaySong />
+            <div className="flex justify-between">
+              <div>
+                <p className="font-bold">{track.name}</p>
+                <p className="text-xs">{track.artists[0].name}</p>
+              </div>
+              <p className="text-xs">{Math.floor(track.duration_ms / 1000 / 60) % 60} : {(Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")}</p>
+            </div>
+          </article>
+        ))}
+
+      </section>
+
+    </main>
+  );
 }
- 
+
 export default AlbumsId;

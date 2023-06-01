@@ -29,7 +29,7 @@ const FeaturedDetail = async ({ params: { featuredId } }) => {
             {featured && (
                 <>
                     <div className="w-full h-[25rem] relative bg-black">
-                        <img src={featured.images[0].url} alt="" className="w-full h-full absolute object-cover opacity-75" />
+                        <img src={featured.images[0].url} alt={featured.name} className="w-full h-full absolute object-cover opacity-75" />
                     </div>
                     <div className="absolute pt-7 px-7">
                         <h1 className=" text-2xl font-medium text-white drop-shadow">{featured.name}</h1>
