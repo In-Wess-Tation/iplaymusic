@@ -19,7 +19,7 @@ const Navigation = () => {
    // }
 
    return (
-      <nav className="flex justify-between items-center my-4 mx-2 z-50">
+      <nav className="flex justify-between items-center my-2 mx-2 z-50">
          <Link href={"/albums"} className={pathname == "/albums" ? "text-black dark:text-white text-4xl" : "text-pink-yyyy text-4xl"}><TbWaveSawTool /></Link>
          <Link href={"/playlists"} className={pathname == "/playlists" ? "text-black dark:text-white text-4xl" : "text-pink-yyyy text-4xl"}><IoIosMicrophone /></Link>
          <Link href={"/featured"} className={pathname == "/featured" ? "text-pink-yyyy text-5xl bg-gradient-to-t from-black to-black dark:from-white dark:to-white p-2 rounded-full" : "text-white text-5xl bg-gradient-to-t from-pink-yyyy to-orange rounded-full p-2"}><TbRadar2 /></Link>
