@@ -29,13 +29,15 @@ const CategoriesDetail = async ({ params: { categoriesId } }) => {
     console.log(categoriesDetails)
 
     return (
-        <main>
+        <main className="grid">
             {categoriesDetails && (
                 <>
                     <div className="w-full h-[25rem] relative bg-black">
                         <img src={categoriesDetails.icons[0].url} alt={categoriesDetails.name} className="w-full h-full absolute object-cover opacity-75" />
                     </div>
-                    <h1 className=" text-2xl font-medium text-white drop-shadow absolute bottom-2 z-10">{categoriesDetails.name}</h1>
+                    <div className="absolute pt-7 px-7">
+                        <h1 className=" text-2xl font-medium text-white drop-shadow">{categoriesDetails.name}</h1>
+                    </div>
                 </>
             )}
         </main>
