@@ -3,6 +3,7 @@
 import React, {useContext, useState} from 'react'
 import axios from 'axios';
 import TokenContext from '../contexts/TokenContext';
+import PlaySong from '../components/PlaySong';
 
 function Searcher() {
     const [searchKey, setSearchKey] = useState("")
@@ -17,10 +18,10 @@ function Searcher() {
  
     
     const searchArtist = async () => {
-        const {data} = await axios.get("https://api.spotify.com/v1/search?q=remaster%2520track%3ADoxy%2520artist%3AMiles%2520Davis&type=artist%2Cplaylist%2Calbum%2Ctrack", {
+        const {data} = await axios.get("https://api.spotify.com/v1/search", {
             headers: {
                 // 'Content-Type' : "application/json",
-                'Authorization': "Bearer" + token.access_token,
+                'Authorization': "Bearer " + token.access_token,
             },
             params: {
                 q: searchKey,
@@ -28,12 +29,13 @@ function Searcher() {
             }
         })
       
-        // var artistID = data.artists.items[0].id
+        var artistID = data.artists.items[0].id
         console.log(data)
 
-        var artistTracks = await axios.get("https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg/top-tracks", {
+        var artistTracks = await axios.get(
+            `https://api.spotify.com/v1/artists/${artistID}/top-tracks`, {
             headers: {
-                Authorization: "Bearer" + token.access_token,
+                Authorization: "Bearer " + token.access_token,
             },
             params: {
                 limit: 10,
@@ -58,10 +60,8 @@ function Searcher() {
       </div>
       {
         tracks.slice(0, 5).map(track => (
-            <div key={track.id} >
-                <ul>
-                    <li > {track.name}</li>
-                </ul>
+            <div className='p-3' key={track.id}> 
+                <PlaySong song={track.name} time={Math.floor(track.duration_ms / 1000 / 60) % 60 +  ":" + (Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")}/>
             </div>
         ))
       }
