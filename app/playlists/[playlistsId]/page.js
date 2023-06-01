@@ -31,7 +31,7 @@ const PlaylistsDetail = async ({ params: { playlistsId } }) => {
             {details && (
                 <>
                     <div className="w-full h-[25rem] relative bg-black">
-                        <img src={details.images[0].url} alt="" className="w-full h-full absolute object-cover opacity-75" />
+                        <img src={details.images[0].url} alt={details.name} className="w-full h-full absolute object-cover opacity-75" />
                     </div>
                     <div className="absolute pt-7 px-7">
                         <h1 className=" text-2xl font-medium text-white drop-shadow">{details.name}</h1>
