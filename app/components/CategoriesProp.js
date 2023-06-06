@@ -45,11 +45,14 @@ const CategoriesProp = async ({ headline, category, bgprimary }) => {
             <div className="place-self-center">
                 <ul className={`${isOpen ? "block " : "hidden"} w-[20rem] h-auto bg-white border py-2 px-4`}>
                     <li className="flex justify-between">
-                        {categories.categories.items.map((item, index) => {
+                        {categories.categories.items.map(item => (
+                            <Link href={`/categories/${item.id}`} className="pt-1">{category}</Link>
+                        ))}
+                        {/* {categories.categories.items.map((item, index) => {
                             if (index < 1) return (
                                 <Link href={`/categories/${item.id}`} className="pt-1">{category}</Link>
                             )
-                        })}
+                        })} */}
                         <IoIosArrowForward className="my-2" />
                     </li>
                 </ul>
