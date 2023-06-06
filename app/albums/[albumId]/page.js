@@ -4,25 +4,6 @@ import PlaySong from "@/app/components/PlaySong";
 import TokenContext from "@/app/contexts/TokenContext";
 import { useContext } from "react";
 
-//this is what to use!!!
-// const getData = async (albumId, data) => {
-
-//     const accessToken = useAuth();
-//     console.log(accessToken)
-
-//     const result = await fetch(
-//         `https://api.spotify.com/v1/browse/new-releases/${albumId}`, {
-//         method: "GET",
-//              headers: {
-//              Accept: "application/json",
-//              "Content-Type": "application/json",
-//              Authorization: data,
-//           }
-//     })
-//     if(!result.ok) { throw new Error("Failed to fetch album")}
-//     return result.json()
-// }
-
 const getAlbumsId = async (token, albumId) => {
 
   const result = await fetch(
@@ -42,8 +23,6 @@ const getAlbumsId = async (token, albumId) => {
 }
 
 
-
-
 const AlbumsId = async ({ params: { albumId } }) => {
 
   const [token] = useContext(TokenContext)
@@ -54,14 +33,17 @@ const AlbumsId = async ({ params: { albumId } }) => {
 
   return (
     <main>
-      <section className="pb-10">
+      <section className="">
         <div>
           <img src={albums.images[0].url} alt={albums.name} />
         </div>
         <article className="p-5 leading-10">
           <div>
             <h1 className="text-2xl font-bold">{albums.name}</h1>
-            <p className="font-bold">{albums.total_tracks} Songs</p>
+            {albums.artists.map(artist => (
+              <p>{artist.name}</p>
+            ))}
+            <p className="text-sm py-2"><span className="font-semibold">Songs: </span>{albums.total_tracks}</p>
           </div>
 
         </article>
@@ -71,19 +53,12 @@ const AlbumsId = async ({ params: { albumId } }) => {
 
       <section>
 
-        {albums.tracks.items.map(track => (
-          <article key={track.id} className="grid grid-cols-[70px_minmax(300px,_1fr)_200px] pb-5 leading-10">
-            <PlaySong />
-            <div className="flex justify-between">
-              <div>
-                <p className="font-bold">{track.name}</p>
-                <p className="text-xs">{track.artists[0].name}</p>
-              </div>
-              <p className="text-xs">{Math.floor(track.duration_ms / 1000 / 60) % 60} : {(Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")}</p>
-            </div>
-          </article>
-        ))}
-
+        <article className="grid gap-y-8 pb-20 my-4">
+          {albums.tracks.items.map(track => (
+            <PlaySong key={track.id} song={track.name} artist={track.artists[0].name} time={Math.floor(track.duration_ms / 1000 / 60) % 60 + ":" + (Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")} />
+          ))}
+          <p className="opacity-40 text-sm mx-4">Released: {albums.release_date}</p>
+        </article>
       </section>
 
     </main>

@@ -42,7 +42,7 @@ const PlaylistsDetail = async ({ params: { playlistsId } }) => {
                             <FaPlay className="text-white" />
                         </button> */}
                         <h2 className="font-semibold ">All Songs</h2>
-                        <p className="text-sm"><span className="font-semibold">Songs: </span>{details.tracks.total}</p>
+                        <p className="text-sm pt-1"><span className="font-semibold">Songs: </span>{details.tracks.total}</p>
                     </div>
                 </>
             )}
