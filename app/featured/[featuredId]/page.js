@@ -37,7 +37,7 @@ const FeaturedDetail = async ({ params: { featuredId } }) => {
                     </div>
                     <div className="pt-6 px-4">
                         <h2 className="font-semibold">All Songs</h2>
-                        <p className="text-sm"><span className="font-semibold">Songs: </span>{featured.tracks.total}</p>
+                        <p className="text-sm pt-1"><span className="font-semibold">Songs: </span>{featured.tracks.total}</p>
                     </div>
                 </>
             )}

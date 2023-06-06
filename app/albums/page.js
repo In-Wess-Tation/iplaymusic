@@ -36,45 +36,47 @@ const Albums = async () => {
   // console.log(albums)
 
   return (
-    <main className="m-5">
+    <main>
       <HeadlinePage headline={"All Albums"} />
-      <section className="pb-24">
-        <div className="flex justify-between py-5">
-          <h2 className="font-bold">Featured Albums</h2>
-          <p className="text-pink-yyyy">View All</p>
-        </div>
+      <div className="m-5">
+        <section className="pb-16">
+          <div className="flex justify-between py-5">
+            <h2 className="font-bold">Featured Albums</h2>
+            <p className="text-pink-yyyy">View All</p>
+          </div>
 
-        <div className="overflow-x-scroll no-scrollbar">
-          <FeaturedAlbums />
-        </div>
-
-
-        <div className="flex justify-between py-5">
-          <h2 className="font-bold">New Releases</h2>
-          <p className="text-pink-yyyy">View All</p>
-        </div>
+          <div className="overflow-x-scroll no-scrollbar">
+            <FeaturedAlbums />
+          </div>
 
 
-        <article>
-          {albums.albums.items.map(item => (
-            <Link key={item.id} className="grid grid-cols-[50px_minmax(260px,_1fr)_200px] pb-5 gap-5 md:grid-cols-[50px_minmax(700px,_1fr)_200px] lg:grid-cols-[50px_minmax(1300px,_1fr)_200px]" href={`/albums/${item.id}`}>
-              <img className="rounded h-12 w-12" src={item.images[0].url} alt="Album picture" />
+          <div className="flex justify-between py-5">
+            <h2 className="font-bold">New Releases</h2>
+            <p className="text-pink-yyyy">View All</p>
+          </div>
 
-              <article className="flex justify-between">
-                <div>
-                  <p className="font-bold">{item.name}</p>
-                  <p className="text-xs">{item.artists[0].name}</p>
-                </div>
 
-                <div>
-                  <p className="text-xs">{item.total_tracks} Songs</p>
-                </div>
-              </article>
+          <article>
+            {albums.albums.items.map(item => (
+              <Link key={item.id} className="grid grid-cols-[50px_minmax(260px,_1fr)_200px] pb-5 gap-5 md:grid-cols-[50px_minmax(700px,_1fr)_200px] lg:grid-cols-[50px_minmax(1300px,_1fr)_200px]" href={`/albums/${item.id}`}>
+                <img className="rounded h-12 w-12" src={item.images[0].url} alt="Album picture" />
 
-            </Link>
-          ))}
-        </article>
-      </section>
+                <article className="flex justify-between">
+                  <div>
+                    <p className="font-bold">{item.name}</p>
+                    <p className="text-xs">{item.artists[0].name}</p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs">{item.total_tracks} Songs</p>
+                  </div>
+                </article>
+
+              </Link>
+            ))}
+          </article>
+        </section>
+      </div>
     </main>
   );
 };

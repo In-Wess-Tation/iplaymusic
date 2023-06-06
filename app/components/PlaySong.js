@@ -7,7 +7,7 @@ const PlaySong = ({ song, artist, time, id }) => {
 
     const [playing, setPlaying] = useState(false);
 
-    const url = "http://localhost:3000/search/myMusic.mp3"
+    const url = "http://localhost:3000/smoke-143172.mp3"
 
     const audioRef = useRef(new Audio(url))
 
