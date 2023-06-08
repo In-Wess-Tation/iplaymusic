@@ -42,23 +42,23 @@ const Categories = async () => {
         <main className="grid gap-y-4 pb-20">
             <HeadlinePage headline={"Categories"} />
             {categories.categories.items.map((category, index) => (
-                //                                                         modulus - division remainder - modulus efterlader altid noget tilbage  
-                // <CategoriesProp key={category.id} headline={category.name} bgprimary={bgColor[index % bgColor.length]} category={category.name} />
                 <>
-                    <div className={`w-[22rem] h-auto ${bgColor[index % bgColor.length]} place-self-center rounded-2xl cursor-pointer`} onClick={handleIsOpen}>
+                    {/*                                                        modulus - division remainder - modulus efterlader altid noget tilbage   */}
+                    <CategoriesProp id={category.id} key={category.id} headline={category.name} bgprimary={bgColor[index % bgColor.length]} category={category.name} />
+                    {/* <div className={`w-[22rem] h-auto ${bgColor[index % bgColor.length]} place-self-center rounded-2xl cursor-pointer`} onClick={handleIsOpen}>
                         <div className="flex text-white justify-between px-4 py-6">
                             <h2 className="flex font-semibold capitalize">{category.name}</h2>
                             <RxDotsHorizontal className="text-3xl" />
                         </div>
-                    </div>
-                    <div className="place-self-center">
+                    </div> */}
+                    {/* <div className="place-self-center">
                         <ul className={`${isOpen ? "block " : "hidden"} w-[20rem] h-auto bg-white border py-2 px-4`}>
                             <li className="flex justify-between">
                                 <Link href={`/categories/${category.id}`} className="pt-1 text-black">{category.name}</Link>
                                 <IoIosArrowForward className="my-2" />
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </>
             ))}
         </main>

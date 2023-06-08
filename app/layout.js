@@ -1,10 +1,8 @@
 "use client";
-
 import { useState } from 'react';
 import FooterWrapper from './components/footer, header og nav/FooterWrapper'
 import Header from './components/footer, header og nav/Header'
 import PageWrapper from './components/PageWrapper'
-
 import './globals.css'
 import { Poppins } from 'next/font/google'
 import TokenContext from './contexts/TokenContext';
