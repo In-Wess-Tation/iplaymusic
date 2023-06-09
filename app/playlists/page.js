@@ -34,7 +34,7 @@ const Playlists = async () => {
       <article className="grid grid-cols-2 gap-6 m-auto pb-24">
         {playlists.items.map(item => (
           <Link href={`/playlists/${item.id}`} className="w-40 h-40 relative">
-            <img key={item.id} src={item.images[0].url} alt="" className="w-40 h-40 absolute " />
+            <img key={item.id} src={item.images[0].url} alt="" className="w-44 h-40 absolute " />
           </Link>
         ))}
       </article>

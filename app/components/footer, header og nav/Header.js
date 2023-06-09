@@ -2,9 +2,9 @@
 import { IoIosArrowBack } from "react-icons/io"
 import { AiOutlineSearch } from "react-icons/ai"
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
-const Header = ({ headline }) => {
+const Header = () => {
 
     const pathname = usePathname()
     const finalSlashIndex = pathname.lastIndexOf('/')

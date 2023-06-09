@@ -1,8 +1,15 @@
+"use client"
+import { useContext } from "react";
 import { AiFillForward, AiFillStepBackward, AiFillStepForward, AiOutlineBackward } from "react-icons/ai";
 import { BsFillVinylFill } from "react-icons/bs";
 import { FaPlay } from "react-icons/fa"
+import SpotifyPlayer from "react-spotify-web-playback";
+import TokenContext from "../contexts/TokenContext";
 
 const Player = () => {
+
+    const [token] = useContext(TokenContext)
+
     return (
         <main className="grid justify-items-center self-center gap-y-10">
             <article className="m-10">
@@ -11,7 +18,8 @@ const Player = () => {
                 </div>
             </article>
             <article>
-                play border
+                <SpotifyPlayer token={token} />
+                {/* <input type="range" name="range" id="range" max={10000} min={0} /> */}
             </article>
             <article className="flex gap-x-4 justify-center items-center">
                 <AiFillStepBackward className="text-4xl text-pink-yyyy" />
