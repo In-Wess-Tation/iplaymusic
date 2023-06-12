@@ -4,7 +4,6 @@ import { AiFillForward, AiFillStepBackward, AiFillStepForward, AiOutlineBackward
 import { BsFillVinylFill } from "react-icons/bs";
 import { FaPlay } from "react-icons/fa"
 import TokenContext from "../contexts/TokenContext";
-import ReactAudioPlayer from "react-audio-player";
 
 const Player = () => {
 
@@ -23,9 +22,7 @@ const Player = () => {
                 <AiFillStepBackward className="text-4xl text-pink-yyyy" />
                 <AiOutlineBackward className="text-4xl" />
                 <button className="bg-gradient-to-t from-pink-yyyy to-orange p-4 rounded-full flex justify-center items-center">
-                <ReactAudioPlayer src="smoke.mp3" autoPlay controls>
                     <FaPlay className="text-4xl text-white " />
-                </ReactAudioPlayer>
                 </button>
                 <AiFillForward className="text-4xl" />
                 <AiFillStepForward className="text-4xl text-pink-yyyy " />
