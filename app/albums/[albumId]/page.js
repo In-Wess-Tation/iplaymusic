@@ -30,7 +30,6 @@ const AlbumsId = async ({ params: { albumId } }) => {
   const albums = await getAlbumsId(token, albumId);
   console.log(albums)
 
-
   return (
     <main>
       <section className="">
@@ -57,7 +56,7 @@ const AlbumsId = async ({ params: { albumId } }) => {
           {albums.tracks.items.map(track => (
             <PlaySong key={track.id} song={track.name} artist={track.artists[0].name} time={Math.floor(track.duration_ms / 1000 / 60) % 60 + ":" + (Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")} />
           ))}
-          <p className="opacity-40 text-sm mx-4">Released: {albums.release_date}</p>
+          <p className="opacity-40 text-sm mx-4">Released: {track.release_date}</p>
         </article>
       </section>
 
