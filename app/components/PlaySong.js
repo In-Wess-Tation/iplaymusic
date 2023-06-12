@@ -1,6 +1,7 @@
 "use client"
 import { useRef, useState, useEffect } from "react";
 import { FaPause, FaPlay } from "react-icons/fa";
+import Link from "next/link";
 
 
 const PlaySong = ({ song, artist, time, id }) => {
@@ -29,10 +30,10 @@ const PlaySong = ({ song, artist, time, id }) => {
                     {playing ? <FaPause className="text-xs text-white"/> : <FaPlay className="text-xs text-white" />}
                 </button>
 
-                <div>
+                <Link href={`/player`}>
                     <h2 className="text-sm">{song}</h2>
                     <p className="text-sm">{artist}</p>
-                </div>
+                </Link>
             </div>
             <p className="py-0.5 text-sm">{time}</p>
         </article>
