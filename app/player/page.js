@@ -12,8 +12,8 @@ const Player = () => {
     return (
         <main className="grid justify-items-center self-center gap-y-10">
             <article className="m-10">
-                <div className="bg-neutral-600 p-2">
-                    <BsFillVinylFill className="text-[60vw] text-neutral-500" />
+                <div className="">
+                    <BsFillVinylFill className="text-[60vw] dark:text-neutral-300" />
                 </div>
             </article>
             <article>
