@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
           <PageWrapper>
             <Header />
-            {children}
+              {children}
           </PageWrapper>
           <FooterWrapper />
         </body>
