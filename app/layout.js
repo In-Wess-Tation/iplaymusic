@@ -6,6 +6,7 @@ import PageWrapper from './components/PageWrapper'
 import './globals.css'
 import { Poppins } from 'next/font/google'
 import TokenContext from './contexts/TokenContext';
+import { getCookie } from 'cookies-next';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] })
 
@@ -17,6 +18,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   const [token, setToken] = useState(null);
+  // const [token, setToken] = useState(getCookie('token') || null);
+  //cookie...
 
   return (
     <TokenContext.Provider value={[token, setToken]}>
@@ -24,7 +27,7 @@ export default function RootLayout({ children }) {
         <body className={`dark:bg-[#341931] bg-white dark:text-white ${poppins.className}`}>
           <PageWrapper>
             <Header />
-              {children}
+            {children}
           </PageWrapper>
           <FooterWrapper />
         </body>

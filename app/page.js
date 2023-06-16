@@ -2,11 +2,10 @@ import Link from "next/link";
 import { ImKey } from "react-icons/im"
 import { BsPersonCircle } from "react-icons/bs"
 
-
 export default async function Home() {
 
     return (
-        <main className="dark:bg-pink-yyyy h-[80vh] text-[#341931] dark:text-white grid justify-items-center">
+        <main className="dark:bg-pink-yyyy h-[85vh] text-[#341931] dark:text-white grid justify-items-center">
             <Link href={`https://accounts.spotify.com/authorize?client_id=${process.env.NEXT_PUBLIC_CLIENT_ID}&response_type=code&scope=user-read-email user-read-private user-library-read playlist-read-private playlist-read-collaborative streaming &redirect_uri=http://localhost:3000/callback`}
 
                 className="text-2xl py-2">Log in with Spotify</Link>

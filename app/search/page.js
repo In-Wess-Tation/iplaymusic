@@ -62,7 +62,7 @@ function Searcher() {
             {
                 tracks.slice(0, 10).map(track => (
                     <div className='p-3 my-4' key={track.id}>
-                        <PlaySong song={track.name} time={Math.floor(track.duration_ms / 1000 / 60) % 60 + ":" + (Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")} />
+                        <PlaySong song={track.name} time={Math.floor(track.duration_ms / 1000 / 60) % 60 + ":" + (Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")} artist={track?.artists[0]?.name}/>
                     </div>
                 ))
             }

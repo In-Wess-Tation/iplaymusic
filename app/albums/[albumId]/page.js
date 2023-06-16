@@ -54,9 +54,10 @@ const AlbumsId = async ({ params: { albumId } }) => {
 
         <article className="grid gap-y-8 pb-20 my-4">
           {albums.tracks.items.map(track => (
+            <>
             <PlaySong key={track.id} song={track.name} artist={track.artists[0].name} time={Math.floor(track.duration_ms / 1000 / 60) % 60 + ":" + (Math.floor(track.duration_ms / 1000) % 60).toString().padStart(2, "0")} />
+            </>
           ))}
-          <p className="opacity-40 text-sm mx-4">Released: {track.release_date}</p>
         </article>
       </section>
 
